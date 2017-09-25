@@ -13,12 +13,19 @@
 
 use App\Entity\Member;
 
-Route::get('/', function () {
-    return view('login');
-});
+Route::get('/','View\MemberController@toLogin');
 
 Route::get('test',function (){
     $m = Member::all();
 
     return $m;
 });
+
+Route::any('login','View\MemberController@toLogin');
+
+
+Route::any('register','View\MemberController@toRegister');
+
+Route::post('service/validate_code/create','Service\ValidateController@create');
+
+Route::post('service/validate_phone/send','Service\ValidateController@sendSMS');
