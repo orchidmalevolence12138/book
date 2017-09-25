@@ -11,4 +11,7 @@ class Member extends Model
 
     protected  $primaryKey = 'id';
 
+
+
+
 }
