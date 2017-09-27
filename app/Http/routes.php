@@ -36,10 +36,9 @@ Route::group(['prefix'=>'service'],function (){
     Route::post('register','Service\MemberController@register');
 
     Route::post('login','Service\MemberController@login');
+
+    Route::get('category/parent_id/{parent_id}','Service\BookController@getCategoryByParentId');
 });
 
-
-
-Route::get('category',function (){
-    return view('category');
-});
+Route::get('category','View\BookController@toCategory');
+Route::get('product','View\BookController@toProduct');
