@@ -26,7 +26,7 @@ Route::any('login','View\MemberController@toLogin');
 
 Route::any('register','View\MemberController@toRegister');
 
-Route::group(['prefix'=>'service'],function (){
+Route::group(['prefix'=>'service'],function  (){
     Route::get('validate_code/create','Service\ValidateController@create');
 
     Route::post('validate_phone/send','Service\ValidateController@sendSMS');
@@ -38,6 +38,9 @@ Route::group(['prefix'=>'service'],function (){
     Route::post('login','Service\MemberController@login');
 
     Route::get('category/parent_id/{parent_id}','Service\BookController@getCategoryByParentId');
+
+    Route::get('cart/add/product_id/{product_id}','Service\CartController@addCart');
+
 });
 
 Route::get('category','View\BookController@toCategory');
