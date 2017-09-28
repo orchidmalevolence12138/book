@@ -42,3 +42,4 @@ Route::group(['prefix'=>'service'],function (){
 
 Route::get('category','View\BookController@toCategory');
 Route::get('product','View\BookController@toProduct');
+Route::get('pdt_content','View\BookController@toPdtContent');
