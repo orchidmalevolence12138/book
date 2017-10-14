@@ -106,7 +106,7 @@
         }
 
         function _toCart() {
-            location.href = '/cart';
+            location.href = 'cart';
         }
     </script>
 @endsection

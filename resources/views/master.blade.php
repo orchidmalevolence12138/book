@@ -32,10 +32,10 @@
     <div class="weui_mask_transition" id="mask"></div>
     <div class="weui_actionsheet" id="weui_actionsheet">
         <div class="weui_actionsheet_menu">
-            <div class="weui_actionsheet_cell" onclick="onMenuItemClick(1)">用户中心</div>
-            <div class="weui_actionsheet_cell" onclick="onMenuItemClick(2)">选择套餐</div>
-            <div class="weui_actionsheet_cell" onclick="onMenuItemClick(3)">周边油站</div>
-            <div class="weui_actionsheet_cell" onclick="onMenuItemClick(4)">常见问题</div>
+            <div class="weui_actionsheet_cell" onclick="onMenuItemClick(1)">主页</div>
+            <div class="weui_actionsheet_cell" onclick="onMenuItemClick(2)">书籍类别</div>
+            <div class="weui_actionsheet_cell" onclick="onMenuItemClick(3)">购物车</div>
+            <div class="weui_actionsheet_cell" onclick="onMenuItemClick(4)">我的订单</div>
         </div>
         <div class="weui_actionsheet_action">
             <div class="weui_actionsheet_cell" id="actionsheet_cancel">取消</div>
@@ -45,50 +45,8 @@
 
 </body>
 <script src="js/jquery-1.11.2.min.js"></script>
-<script type="text/javascript">
-    function hideActionSheet(weuiActionsheet, mask) {
-        weuiActionsheet.removeClass('weui_actionsheet_toggle');
-        mask.removeClass('weui_fade_toggle');
-        weuiActionsheet.on('transitionend', function () {
-            mask.hide();
-        }).on('webkitTransitionEnd', function () {
-            mask.hide();
-        })
-    }
+<script src="js/book.js"></script>
 
-    function onMenuClick () {
-        var mask = $('#mask');
-        var weuiActionsheet = $('#weui_actionsheet');
-        weuiActionsheet.addClass('weui_actionsheet_toggle');
-        mask.show().addClass('weui_fade_toggle').click(function () {
-            hideActionSheet(weuiActionsheet, mask);
-        });
-        $('#actionsheet_cancel').click(function () {
-            hideActionSheet(weuiActionsheet, mask);
-        });
-        weuiActionsheet.unbind('transitionend').unbind('webkitTransitionEnd');
-    }
-
-    function onMenuItemClick(index) {
-        var mask = $('#mask');
-        var weuiActionsheet = $('#weui_actionsheet');
-        hideActionSheet(weuiActionsheet, mask);
-        if(index == 1) {
-
-        } else if(index == 2) {
-
-        } else if(index == 3){
-
-        } else {
-            $('.bk_toptips').show();
-            $('.bk_toptips span').html("敬请期待!");
-            setTimeout(function() {$('.bk_toptips').hide();}, 2000);
-        }
-    }
-
-    //将标题栏和标题保持一致
-    $('.bk_title_content').html(document.title);
-</script>
 
 @yield('my-js')
 </html>
